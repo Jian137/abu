@@ -8,7 +8,10 @@ from __future__ import division
 from __future__ import print_function
 
 import logging
-from collections import Iterable
+try:
+    from collections.abc import Iterable
+except ImportError:
+    from collections import Iterable
 
 import pandas as pd
 
