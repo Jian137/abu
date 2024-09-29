@@ -9,3 +9,226 @@ Fri, 27 Sep 2024 17:17:05 pyplot.py[line:414] DEBUG Loaded backend module://matp
 Sat, 28 Sep 2024 02:11:28 pyplot.py[line:414] DEBUG Loaded backend module://matplotlib_inline.backend_inline version unknown.
 Sat, 28 Sep 2024 02:13:18 pyplot.py[line:414] DEBUG Loaded backend module://matplotlib_inline.backend_inline version unknown.
 Sat, 28 Sep 2024 02:16:09 pyplot.py[line:414] DEBUG Loaded backend module://matplotlib_inline.backend_inline version unknown.
+Sat, 28 Sep 2024 02:23:46 ABuEnv.py[line:400] INFO enable example env will only read RomDataBu/csv
+Sat, 28 Sep 2024 02:44:07 ABuEnv.py[line:412] INFO disable example env
+Sat, 28 Sep 2024 02:44:53 connectionpool.py[line:243] DEBUG Starting new HTTP connection (1): gp.baidu.com:80
+Sat, 28 Sep 2024 02:45:11 ABuNetWork.py[line:51] ERROR HTTPConnectionPool(host='gp.baidu.com', port=80): Max retries exceeded with url: /stocks/stockkline?from=android&os_ver=21&format=json&vv=3.3.0&uid=&BDUSS=&cuid=ftoj29apcmwii7mav9gaq66qzbuumyti38gddjtl&channel=default_channel&device=OPPOR9&logid=1727491536&actionid=1727491470&device_net_type=wifi&period=day&stock_code=usJD&fq_type=front (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f805d93aba0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)"))
+Traceback (most recent call last):
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/socket.py", line 964, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 495, in _make_request
+    conn.request(
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 398, in request
+    self.endheaders()
+  File "/home/azureuser/anaconda3/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/azureuser/anaconda3/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/home/azureuser/anaconda3/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f805d93aba0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/adapters.py", line 589, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='gp.baidu.com', port=80): Max retries exceeded with url: /stocks/stockkline?from=android&os_ver=21&format=json&vv=3.3.0&uid=&BDUSS=&cuid=ftoj29apcmwii7mav9gaq66qzbuumyti38gddjtl&channel=default_channel&device=OPPOR9&logid=1727491536&actionid=1727491470&device_net_type=wifi&period=day&stock_code=usJD&fq_type=front (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f805d93aba0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/azureuser/abu/abupy/MarketBu/ABuNetWork.py", line 43, in get
+    resp = requests.get(url=url, params=params, headers=headers, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/adapters.py", line 622, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='gp.baidu.com', port=80): Max retries exceeded with url: /stocks/stockkline?from=android&os_ver=21&format=json&vv=3.3.0&uid=&BDUSS=&cuid=ftoj29apcmwii7mav9gaq66qzbuumyti38gddjtl&channel=default_channel&device=OPPOR9&logid=1727491536&actionid=1727491470&device_net_type=wifi&period=day&stock_code=usJD&fq_type=front (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f805d93aba0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)"))
+Sat, 28 Sep 2024 02:45:25 connectionpool.py[line:243] DEBUG Starting new HTTP connection (1): gp.baidu.com:80
+Sat, 28 Sep 2024 02:45:25 ABuNetWork.py[line:51] ERROR HTTPConnectionPool(host='gp.baidu.com', port=80): Max retries exceeded with url: /stocks/stockkline?from=android&os_ver=21&format=json&vv=3.3.0&uid=&BDUSS=&cuid=ftoj29apcmwii7mav9gaq66qzbuumyti38gddjtl&channel=default_channel&device=OPPOR9&logid=1727491536&actionid=1727491470&device_net_type=wifi&period=day&stock_code=usJD&fq_type=front (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f8055e38ec0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)"))
+Traceback (most recent call last):
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/socket.py", line 964, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 495, in _make_request
+    conn.request(
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 398, in request
+    self.endheaders()
+  File "/home/azureuser/anaconda3/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/azureuser/anaconda3/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/home/azureuser/anaconda3/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f8055e38ec0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/adapters.py", line 589, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='gp.baidu.com', port=80): Max retries exceeded with url: /stocks/stockkline?from=android&os_ver=21&format=json&vv=3.3.0&uid=&BDUSS=&cuid=ftoj29apcmwii7mav9gaq66qzbuumyti38gddjtl&channel=default_channel&device=OPPOR9&logid=1727491536&actionid=1727491470&device_net_type=wifi&period=day&stock_code=usJD&fq_type=front (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f8055e38ec0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/azureuser/abu/abupy/MarketBu/ABuNetWork.py", line 43, in get
+    resp = requests.get(url=url, params=params, headers=headers, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/adapters.py", line 622, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='gp.baidu.com', port=80): Max retries exceeded with url: /stocks/stockkline?from=android&os_ver=21&format=json&vv=3.3.0&uid=&BDUSS=&cuid=ftoj29apcmwii7mav9gaq66qzbuumyti38gddjtl&channel=default_channel&device=OPPOR9&logid=1727491536&actionid=1727491470&device_net_type=wifi&period=day&stock_code=usJD&fq_type=front (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f8055e38ec0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)"))
+Sat, 28 Sep 2024 02:45:25 connectionpool.py[line:243] DEBUG Starting new HTTP connection (1): gp.baidu.com:80
+Sat, 28 Sep 2024 02:45:26 ABuNetWork.py[line:51] ERROR HTTPConnectionPool(host='gp.baidu.com', port=80): Max retries exceeded with url: /stocks/stockkline?from=android&os_ver=21&format=json&vv=3.3.0&uid=&BDUSS=&cuid=ftoj29apcmwii7mav9gaq66qzbuumyti38gddjtl&channel=default_channel&device=OPPOR9&logid=1727491536&actionid=1727491470&device_net_type=wifi&period=day&stock_code=usJD&fq_type=front (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f8055e505c0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)"))
+Traceback (most recent call last):
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 196, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/util/connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/socket.py", line 964, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno -2] Name or service not known
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 789, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 495, in _make_request
+    conn.request(
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 398, in request
+    self.endheaders()
+  File "/home/azureuser/anaconda3/lib/python3.12/http/client.py", line 1331, in endheaders
+    self._send_output(message_body, encode_chunked=encode_chunked)
+  File "/home/azureuser/anaconda3/lib/python3.12/http/client.py", line 1091, in _send_output
+    self.send(msg)
+  File "/home/azureuser/anaconda3/lib/python3.12/http/client.py", line 1035, in send
+    self.connect()
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 236, in connect
+    self.sock = self._new_conn()
+                ^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connection.py", line 203, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: <urllib3.connection.HTTPConnection object at 0x7f8055e505c0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/adapters.py", line 589, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/connectionpool.py", line 843, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/urllib3/util/retry.py", line 519, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPConnectionPool(host='gp.baidu.com', port=80): Max retries exceeded with url: /stocks/stockkline?from=android&os_ver=21&format=json&vv=3.3.0&uid=&BDUSS=&cuid=ftoj29apcmwii7mav9gaq66qzbuumyti38gddjtl&channel=default_channel&device=OPPOR9&logid=1727491536&actionid=1727491470&device_net_type=wifi&period=day&stock_code=usJD&fq_type=front (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f8055e505c0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/azureuser/abu/abupy/MarketBu/ABuNetWork.py", line 43, in get
+    resp = requests.get(url=url, params=params, headers=headers, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/api.py", line 73, in get
+    return request("get", url, params=params, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/api.py", line 59, in request
+    return session.request(method=method, url=url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/sessions.py", line 589, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/sessions.py", line 703, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/azureuser/anaconda3/lib/python3.12/site-packages/requests/adapters.py", line 622, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPConnectionPool(host='gp.baidu.com', port=80): Max retries exceeded with url: /stocks/stockkline?from=android&os_ver=21&format=json&vv=3.3.0&uid=&BDUSS=&cuid=ftoj29apcmwii7mav9gaq66qzbuumyti38gddjtl&channel=default_channel&device=OPPOR9&logid=1727491536&actionid=1727491470&device_net_type=wifi&period=day&stock_code=usJD&fq_type=front (Caused by NameResolutionError("<urllib3.connection.HTTPConnection object at 0x7f8055e505c0>: Failed to resolve 'gp.baidu.com' ([Errno -2] Name or service not known)"))
+Sat, 28 Sep 2024 02:45:41 ABuEnv.py[line:400] INFO enable example env will only read RomDataBu/csv
+Sat, 28 Sep 2024 02:56:40 ABuEnv.py[line:412] INFO disable example env
+Sat, 28 Sep 2024 02:56:42 ABuEnv.py[line:400] INFO enable example env will only read RomDataBu/csv
+Sun, 29 Sep 2024 02:04:03 ABuEnv.py[line:400] INFO enable example env will only read RomDataBu/csv
+Sun, 29 Sep 2024 02:04:04 ABuEnv.py[line:412] INFO disable example env

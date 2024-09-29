@@ -230,7 +230,7 @@ g_market_source = EMarketSourceType.E_MARKET_SOURCE_bd
 
 """自定义的私有数据源类，默认None"""
 g_private_data_source = None
-
+# TODO 环境设置，私有数据源类
 
 # TODO 缩短 E_MARKET_TARGET_US－>US
 class EMarketTargetType(Enum):

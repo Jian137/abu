@@ -2,7 +2,6 @@
 """
     数据对外接口模块，其它模块需要数据都只应该使用ABuSymbolPd, 不应涉及其它内部模块的使用
 """
-
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -107,7 +106,7 @@ def _benchmark(df, benchmark, symbol):
 
     return kl_pd
 
-
+# TODO 修改请求网络的部分
 def _make_kl_df(symbol, data_mode, n_folds, start, end, benchmark, save):
     """
     针对一个symbol进行数据获取，内部使用kline_pd从本地加载或者指定数据源进行网络请求
