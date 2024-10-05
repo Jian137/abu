@@ -218,7 +218,7 @@ class AbuCommission(object):
             # 将买单对象AbuOrder实例中的数据转换成交易记录需要的np.array对象
             record = np.array(['buy', a_order.buy_date, a_order.buy_symbol, commission]).reshape(1, 4)
             record_df = pd.DataFrame(record, columns=self.df_columns)
-            self.commission_df = self.commission_df.append(record_df)
+            self.commission_df = self.commission_df._append(record_df)
         else:
             logging.info('buy_commission_func calc error')
 
