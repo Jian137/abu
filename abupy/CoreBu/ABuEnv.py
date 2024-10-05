@@ -2,6 +2,7 @@
 """
     全局环境配置模块
 """
+# 配置文件
 
 from __future__ import absolute_import
 from __future__ import division
@@ -226,8 +227,9 @@ class EMarketSourceType(Enum):
 
 
 """默认设置数据源使用E_MARKET_SOURCE_bd"""
-g_market_source = EMarketSourceType.E_MARKET_SOURCE_bd
-
+# TODO 设置数据源
+#g_market_source = EMarketSourceType.E_MARKET_SOURCE_bd
+g_market_source = EMarketSourceType.E_MARKET_SOURCE_tx
 """自定义的私有数据源类，默认None"""
 g_private_data_source = None
 # TODO 环境设置，私有数据源类

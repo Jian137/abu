@@ -36,7 +36,7 @@ from ..CoreBu.ABuFixes import six
 __author__ = '阿布'
 __weixin__ = 'abu_quant'
 
-
+# TODO 未知
 def _benchmark(df, benchmark, symbol):
     """
     在内部使用kline_pd获取金融时间序列pd.DataFrame后，如果参数中
@@ -47,14 +47,18 @@ def _benchmark(df, benchmark, symbol):
     :param symbol: Symbol对象
     :return: 使用基准的时间范围切割返回的金融时间序列
     """
-    if len(df.index & benchmark.kl_pd.index) <= 0:
+    # if len(df.index & benchmark.kl_pd.index) <= 0:
+    if len(df.index.intersection(benchmark.kl_pd.index))  <= 0:  
         # 如果基准benchmark时间范围和输入的df没有交集，直接返回None
         return None
 
     # 两个金融时间序列通过loc寻找交集
-    kl_pd = df.loc[benchmark.kl_pd.index]
+    # kl_pd = df.loc[benchmark.kl_pd.index]
+    
+    kl_pd = df.loc[df.index.intersection(benchmark.kl_pd.index)]
+    
     # nan的date个数即为不相交的个数
-    nan_cnt = kl_pd['date'].isnull().value_counts()
+    nan_cnt = len(df)-len(kl_pd) #kl_pd['date'].isnull().value_counts()
     # 两个金融序列是否相同的结束日期
     same_end = df.index[-1] == benchmark.kl_pd.index[-1]
     # 两个金融序列是否相同的开始日期
@@ -73,11 +77,14 @@ def _benchmark(df, benchmark, symbol):
         # 如果是A股市场的目标，由于停盘频率和周期都会长与其它市场所以再放宽一些
         base_keep_div *= 0.7
 
-    if nan_cnt.index.shape[0] > 0 and nan_cnt.index.tolist().count(True) > 0 \
-            and nan_cnt.loc[True] > benchmark.kl_pd.shape[0] / base_keep_div:
+    #if nan_cnt.index.shape[0] > 0 and nan_cnt.index.tolist().count(True) > 0 \
+    #        and nan_cnt.loc[True] > benchmark.kl_pd.shape[0] / base_keep_div:
         # nan 个数 > 基准base_keep_div分之一放弃
+    #    return None
+    if nan_cnt >0 and nan_cnt > (benchmark.kl_pd.shape[0] / base_keep_div):
         return None
-
+    # TODO 不确定
+    
     # 来到这里说明没有放弃，那么就填充nan
     # 首先nan的交易量是0
     kl_pd.volume.fillna(value=0, inplace=True)

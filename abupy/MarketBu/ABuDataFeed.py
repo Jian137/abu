@@ -83,6 +83,7 @@ def query_symbol_from_pinyin(pinyin):
 
 
 class BDApi(StockBaseMarket, SupportMixin):
+    # TODO 修改数据源
     """bd数据源，支持港股，美股，a股"""
 
     K_NET_CONNECT_START = '&start='
